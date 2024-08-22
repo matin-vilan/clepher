@@ -1,8 +1,10 @@
+import AppRoutes from "./routes/Routes";
+
 function App() {
   return (
-    <>
-      <div>APP</div>
-    </>
+    <div className="w-full container mx-auto">
+      <AppRoutes />
+    </div>
   );
 }
 
