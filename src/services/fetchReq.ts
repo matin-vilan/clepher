@@ -2,7 +2,7 @@ import { RequestOptions } from "../types/req";
 import { APIKEY, BASE_URL } from "../constants/global";
 
 // ==================================== request with Authorization header =====================================
-export const authRequest = async (
+export const fetchRequest = async (
   url: string,
   { method = "GET", headers, body, ...restOptions }: RequestOptions
 ) => {
@@ -27,11 +27,5 @@ export const authRequest = async (
     .then((res) => res.json())
     .then((res) => res);
 
-  if (!response.success) {
-    const error = new Error(
-      JSON.stringify({ message: response.data, status: response?.status })
-    );
-    throw error;
-  }
   return response;
 };

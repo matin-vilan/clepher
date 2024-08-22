@@ -17,3 +17,26 @@ export type RequestOptions = {
     | "strict-origin-when-cross-origin"
     | "unsafe-url";
 };
+
+export type DefaultRequest = {
+  headers?: Record<string, string>;
+};
+
+export enum GetApiTypes {
+  TIME_SERIES_INTRADAY = "TIME_SERIES_INTRADAY",
+  TIME_SERIES_DAILY = "TIME_SERIES_DAILY",
+  TIME_SERIES_DAILY_ADJUSTED = "TIME_SERIES_DAILY_ADJUSTED",
+  // and so on ...
+}
+
+export enum GetApiSymbol {
+  IBM = "IBM",
+}
+
+export enum GetApiInterval {
+  "1MIN" = "1min",
+  "5MIN" = "5min",
+  "15MIN" = "15min",
+  "30MIN" = "30min",
+  "60MIN" = "60min",
+}
