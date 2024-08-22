@@ -1,5 +1,7 @@
 # React + TypeScript + Vite + TailwindCSS
 
+Please Pull from main branch.
+
 # Project Title
 
 This project is only for review and approval of the company and contains a table to display financial information
