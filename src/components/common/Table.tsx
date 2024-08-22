@@ -4,7 +4,7 @@ const rowClassNames = "py-2 px-4 text-center";
 
 export default function Table(props: TableProps) {
   return (
-    <table className="table-auto">
+    <table className="table-auto w-full bg-gray-100">
       <thead className="border-b-2">
         <tr>
           {props.headers.map((header, i) => (
@@ -18,7 +18,7 @@ export default function Table(props: TableProps) {
         {props.rows.map((row, i) => (
           <tr
             key={`row_${i}`}
-            className={`border-b ${i % 2 !== 0 && "bg-gray-100"}`}
+            className={`border-b ${i % 2 !== 0 && "bg-gray-300"}`}
           >
             {row.map((item, i) => (
               <td key={`${item}_${i}`} className={rowClassNames}>
