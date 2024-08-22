@@ -4,7 +4,6 @@ import Filters from "../common/Filters";
 import Table from "../common/Table";
 import { FiltersType } from "../../types/timeSeries";
 import MetaData from "../common/MetaData";
-import Flex from "../common/Flex";
 
 const headers = ["Date", "Open", "High", "Low", "Close", "Volume"];
 export default function Home() {
