@@ -9,13 +9,17 @@ import {
 
 export async function getTimeSeries(
   args: {
-    type: GetApiTypes;
+    function: GetApiTypes;
     symbol: GetApiSymbol;
     interval: GetApiInterval;
+    adjusted: boolean;
   } & DefaultRequest
 ): Promise<TimeSeriesIntraday> {
-  return await fetchRequest(`?function=${args.type}&symbol=${args.symbol}`, {
-    method: "GET",
-    headers: args.headers,
-  });
+  return await fetchRequest(
+    `?function=${args.function}&symbol=${args.symbol}&interval=${args.interval}&adjusted=${args.adjusted}`,
+    {
+      method: "GET",
+      headers: args.headers,
+    }
+  );
 }
