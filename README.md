@@ -1,5 +1,7 @@
 # React + TypeScript + Vite + TailwindCSS
 
+Filters are apply only on intraday page. so for checking filters, go to intraday page by clicking on top left button on your screen.
+
 Please Pull from main branch.
 
 # Project Title
