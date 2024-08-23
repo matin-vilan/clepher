@@ -1,16 +1,14 @@
 import { GetApiInterval, GetApiSymbol, GetApiTypes } from "./req";
 
 export type MetaDataType = {
-  "1. Information": string;
-  "2. Symbol": string;
-  "3. Last Refreshed": string;
-  "4. Output Size": string;
-  "5. Time Zone": string;
+  [key: string]: string;
 };
 
 export type TimeSeriesIntraday = {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
   "Meta Data": MetaDataType;
-  "Time Series (Daily)": {
+  [key: string]: {
     [timestamp: string]: {
       "1. open": string;
       "2. high": string;
