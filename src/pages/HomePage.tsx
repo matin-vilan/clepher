@@ -8,7 +8,9 @@ import {
 } from "../types/timeSeries";
 import { createDynamicContext } from "../utils/dynamicContext";
 import Home from "../components/pages/Home";
-import { Link } from "react-router-dom";
+import Loading from "../components/common/Loading";
+import PageLayout from "../components/common/PageLayout";
+import LinkButton from "../components/common/LinkButton";
 
 export const TimeSeriesContext = createDynamicContext<{
   timeSeries: TimeSeriesIntraday;
@@ -45,23 +47,21 @@ export default function HomePage() {
   }, [getTimeSeriesData]);
 
   return (
-    <div className="bg-black">
-      <div className="w-full container mx-auto ">
-        {!timeSeries ? (
-          <div>loading...</div>
-        ) : (
-          <TimeSeriesContext.ContextProvider
-            timeSeries={timeSeries}
-            changeFilters={changeFilters}
-            filters={filters}
-          >
-            <Link to="/intraday" style={{ color: "white" }}>
-              Go to intraday page
-            </Link>
-            <Home />
-          </TimeSeriesContext.ContextProvider>
-        )}
-      </div>
-    </div>
+    <PageLayout>
+      {!timeSeries ? (
+        <div className="w-full h-full">
+          <Loading />
+        </div>
+      ) : (
+        <TimeSeriesContext.ContextProvider
+          timeSeries={timeSeries}
+          changeFilters={changeFilters}
+          filters={filters}
+        >
+          <LinkButton to="/intraday">Go to Intraday Page</LinkButton>
+          <Home />
+        </TimeSeriesContext.ContextProvider>
+      )}
+    </PageLayout>
   );
 }
