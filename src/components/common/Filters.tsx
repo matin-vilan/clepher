@@ -9,11 +9,16 @@ export default function Filters({
   onChange: ChangeEventHandler<HTMLSelectElement>;
 }) {
   return (
-    <div className="py-2 bg-gray-200 p-2 rounded-sm border flex flex-col gap-4">
-      <p className="text-blue-700">Filters</p>
+    <div className="bg-white rounded-lg shadow my-4 p-2 dark:bg-gray-800">
+      <p className="text-gray-200">Filters</p>
       <div className="flex gap-4">
-        <Flex vertical className="gap-3">
-          <p>Select Symbol</p>
+        <Flex
+          vertical
+          className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between"
+        >
+          <p className="text-sm text-gray-500 sm:text-center dark:text-gray-500">
+            Select Symbol
+          </p>
           <Select
             name="symbol"
             onChange={onChange}
@@ -25,8 +30,13 @@ export default function Filters({
             ]}
           />
         </Flex>
-        <Flex vertical className="gap-3">
-          <p>Select Interval</p>
+        <Flex
+          vertical
+          className="gap-3 w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between"
+        >
+          <p className="text-sm text-gray-500 sm:text-center dark:text-gray-500">
+            Select Interval
+          </p>
           <Select
             name="interval"
             defaultValue={GetApiInterval["5MIN"]}
@@ -55,8 +65,13 @@ export default function Filters({
             ]}
           />
         </Flex>
-        <Flex vertical className="gap-3">
-          <p>Select Adjusted</p>
+        <Flex
+          vertical
+          className="gap-3 w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between"
+        >
+          <p className="text-sm text-gray-500 sm:text-center dark:text-gray-500">
+            Select Adjusted
+          </p>
           <Select
             name="adjusted"
             defaultValue={"true"}
