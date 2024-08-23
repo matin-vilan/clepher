@@ -7,20 +7,20 @@ import {
   TimeSeriesIntraday,
 } from "../types/timeSeries";
 import { createDynamicContext } from "../utils/dynamicContext";
-import Home from "../components/pages/Home";
+import Intraday from "../components/pages/Intraday";
 import { Link } from "react-router-dom";
 
-export const TimeSeriesContext = createDynamicContext<{
+export const TimeSeriesInterdayContext = createDynamicContext<{
   timeSeries: TimeSeriesIntraday;
   changeFilters: (props: ChangeFilterProps) => void;
   filters: FiltersType;
 }>();
 
-export default function HomePage() {
+export default function IntradayPage() {
   const [timeSeries, setTimeSeries] = useState<TimeSeriesIntraday>();
   const [filters, setFilters] = useState<FiltersType>({
     symbol: GetApiSymbol.IBM,
-    function: GetApiTypes.TIME_SERIES_DAILY,
+    function: GetApiTypes.TIME_SERIES_INTRADAY,
     interval: GetApiInterval["5MIN"],
     adjusted: true,
   });
@@ -50,16 +50,16 @@ export default function HomePage() {
         {!timeSeries ? (
           <div>loading...</div>
         ) : (
-          <TimeSeriesContext.ContextProvider
+          <TimeSeriesInterdayContext.ContextProvider
             timeSeries={timeSeries}
             changeFilters={changeFilters}
             filters={filters}
           >
-            <Link to="/intraday" style={{ color: "white" }}>
-              Go to intraday page
+            <Link to="/" style={{ color: "white" }}>
+              Go back to daily page
             </Link>
-            <Home />
-          </TimeSeriesContext.ContextProvider>
+            <Intraday />
+          </TimeSeriesInterdayContext.ContextProvider>
         )}
       </div>
     </div>
