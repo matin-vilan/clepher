@@ -20,9 +20,10 @@ export default function Table(props: TableProps) {
             key={`row_${i}`}
             className={`border-b ${i % 2 !== 0 && "bg-gray-300"}`}
           >
-            {row.map((item, i) => (
+            <td className="ps-4">{row.row}</td>
+            {Object.keys(row.value).map((item, i) => (
               <td key={`${item}_${i}`} className={rowClassNames}>
-                {item}
+                {row.value[item]}
               </td>
             ))}
           </tr>
