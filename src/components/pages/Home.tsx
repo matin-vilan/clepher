@@ -4,22 +4,13 @@ import Filters from "../common/Filters";
 import Table from "../common/Table";
 import { FiltersType } from "../../types/timeSeries";
 import MetaData from "../common/MetaData";
+import { formatRowsTable } from "../../utils/table/formatRows";
 
 const headers = ["Date", "Open", "High", "Low", "Close", "Volume"];
 export default function Home() {
   const { timeSeries, changeFilters } = TimeSeriesContext.useContext();
 
-  if (!timeSeries) return;
-  const rows: string[][] = Object.entries(
-    timeSeries[`Time Series (Daily)`]
-  ).map((item) => [
-    item[0],
-    item[1]["1. open"],
-    item[1]["2. high"],
-    item[1]["3. low"],
-    item[1]["4. close"],
-    item[1]["5. volume"],
-  ]);
+  const rows = formatRowsTable(timeSeries);
 
   function handleChangeFilters(props: ChangeEvent<HTMLSelectElement>) {
     changeFilters({
