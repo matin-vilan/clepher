@@ -8,6 +8,7 @@ import {
 } from "../types/timeSeries";
 import { createDynamicContext } from "../utils/dynamicContext";
 import Home from "../components/pages/Home";
+import { Link } from "react-router-dom";
 
 export const TimeSeriesContext = createDynamicContext<{
   timeSeries: TimeSeriesIntraday;
@@ -54,6 +55,9 @@ export default function HomePage() {
             changeFilters={changeFilters}
             filters={filters}
           >
+            <Link to="/intraday" style={{ color: "white" }}>
+              Go to intraday page
+            </Link>
             <Home />
           </TimeSeriesContext.ContextProvider>
         )}
